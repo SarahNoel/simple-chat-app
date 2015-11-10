@@ -4,15 +4,45 @@
   <meta charset="UTF-8">
   <title>Socket.IO chat</title>
   <link rel="stylesheet" href="./stylesheets/app.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-  <h3 class= 'invis' id="error">Someone has entered the room!</h3>
 
-  <ul id="messages"></ul>
-
-  <form id='chat-form' action="submit">
-    <input id="m" autocomplete="off" /><button id='send-btn'>Send</button>
+<div id='login-page' class = 'container center'>
+<h2> Welcome to this Snazzy Chat Room! </h2>
+  <h3>What would you like to be called?</h3>
+  <form id='login-form' action="submit">
+    <div class = 'thinner centered'>
+      <input type='text' class = 'form-control thinner' id="login-name"  autocomplete="off">
+      <br>
+      <button id='reg-btn' class='btn btn-primary'>Start Chatting!</button>
+    </div>
   </form>
+
+</div>
+
+<div id = 'chat-room' class = 'invis'>
+  <div class = 'room-box left'>
+    <h3 class = 'invis' id="error"></h3>
+    <h3 class= 'invis' id="left"></h3>
+    <div id='message-box' class = 'message-box'>
+    <ul id="messages"></ul>
+  </div>
+
+  <form class= 'lower-form' id='chat-form' action="submit">
+    <input id="m" class= 'lower-input'  autocomplete="off"><button id='send-btn'>Send</button>
+  </form>
+  </div>
+
+  <div id='typers'></div>
+
+  <div class = 'left user-box center'>
+    <h5> Users Online:</h5>
+    <ul class='nada' id='current-users'></ul>
+  </div>
+
+</div>
+
 
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
