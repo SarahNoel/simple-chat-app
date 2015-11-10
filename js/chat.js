@@ -28,7 +28,6 @@ $(function() {
   });
 
   socket.on('entered', function(data){
-    console.log(data);
     $('#current-users').html('');
     for (var i = 0; i < data.current.length; i++) {
       $('#current-users').append('<li>' + data.current[i]+ '</li>');

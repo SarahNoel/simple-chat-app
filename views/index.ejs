@@ -9,13 +9,13 @@
 <body>
 
 <div id='login-page' class = 'container center'>
-<h2> Welcome to this Snazzy Chat Room! </h2>
+<h1> Welcome! </h1>
   <h3>What would you like to be called?</h3>
   <form id='login-form' action="submit">
     <div class = 'thinner centered'>
       <input type='text' class = 'form-control thinner' id="login-name"  autocomplete="off">
       <br>
-      <button id='reg-btn' class='btn btn-primary'>Start Chatting!</button>
+      <button id='reg-btn' class='btn btn-danger'>Start Chatting!</button>
     </div>
   </form>
 
@@ -23,8 +23,10 @@
 
 <div id = 'chat-room' class = 'invis'>
   <div class = 'room-box left'>
+  <div class = 'container'>
     <h3 class = 'invis' id="error"></h3>
     <h3 class= 'invis' id="left"></h3>
+  </div>
     <div id='message-box' class = 'message-box'>
     <ul id="messages"></ul>
   </div>
