@@ -6,10 +6,13 @@ $(function() {
 
   $('#reg-btn').on('click', function(event){
     event.preventDefault();
-    socket.emit('new user', regInput.val().trim());
-    regInput.val('');
-    $('#login-page').fadeOut();
-    $('#chat-room').fadeIn();
+    user = regInput.val().trim();
+    if(user){
+      socket.emit('new user', user);
+      regInput.val('');
+      $('#login-page').fadeOut();
+      $('#chat-room').fadeIn();
+    }
   });
 
   $('#chat-form').on('submit', function(event){
@@ -30,7 +33,7 @@ $(function() {
   socket.on('entered', function(data){
     $('#current-users').html('');
     for (var i = 0; i < data.current.length; i++) {
-      $('#current-users').append('<li>' + data.current[i]+ '</li>');
+      $('#current-users').append('<li class="table-display">' + data.current[i]+ '</li>');
     }
     $('#error').html(data.username + " has entered the room.");
     $('#error').fadeIn().delay(2000).fadeOut();
@@ -39,7 +42,7 @@ $(function() {
   socket.on('user left', function(data){
     $('#current-users').html('');
     for (var i = 0; i < data.current.length; i++) {
-      $('#current-users').append('<li>' + data.current[i]+ '</li>');
+      $('#current-users').append('<li class="table-display">' + data.current[i]+ '</li>');
     }
     $('#left').html(data.username + " has left the room.");
     $('#left').fadeIn().delay(2000).fadeOut();
